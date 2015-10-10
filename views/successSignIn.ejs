@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign  Up Page</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <h2> Welcome <%=fname%> !! </h2>
+    
+    Log In to ocntinue with the Facebook
+    
+  
+  </head>
+  <body>
+    // redirect to index.ejs i.e sign in page   
+    <form action = "/checkuser" class="navbar-form navbar-right" role="onlySignIn">
+		<div class="form-group">
+			<input type="email" name = "email" id ="email" class="form-control" placeholder="Email Address">
+			<input type="password" name = "pass" id = "pass" class="form-control" placeholder="Password">
+		</div>
+		<button type="submit" class="btn btn-default navbar-btn" ">Sign In</button>
+		//<button type="submit" class="btn btn-default navbar-btn" ">Sign Up</button>
+	</form>
+	 
+	
+  </body>
+</html>
