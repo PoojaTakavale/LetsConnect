@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sign  Up Page</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <h2> Welcome to Sign up Page !! </h2>
-  </head>
-  <body>
-    <form action = "/usersignup" class="navbar-form navbar-right" role="onlySignIn">    
-	
-		<div class="form-group">
-		<input type="fname" name = "fname" id = "fname" class="form-control" placeholder="Enter the First Name"><br/>
-		<input type="lname" name = "lname" id = "lname" class="form-control" placeholder="Enter the Last Name"><br/>
-			<input type="email" name = "email" id = "email" class="form-control" placeholder="Email Address"><br/>
-			<input type="password" name = "pass" id = "pass" class="form-control" placeholder="Password"><br/>
-		</div>
-			<button type="submit" class="btn btn-default navbar-btn" ">Sign Up</button>
-	</form>
-	
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<form action= "/usersignup"> 
+	<div ng-app="" ng-controller="mainPage">
+<nav class="navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-header" href="#">
+		<img alt="Logo" src="../logo1.jpg" width="150">
+	</a> 
+	</div></div>
+	<br>
+	 <div class="col-sm-1">
+		<img alt="Background" src="../fbimg.jpg" width="1360" height="560" style="margin-left:-10px">
+	</div>
+	<form class="form-horizontal" role="form">
+ <div class="col-sm-10">
+  <br>
+    <div class="input-group">
+     <input type="text" class="form-control" id="fname" name = "fname" placeholder="First Name">
+     </div>
+     
+      <br>
+      <div class="input-group">
+    <input type="text" class="form-control" id="lname" name = "lname" placeholder="Last Name">
+     </div>
+     
+     <br>
+    <div class="input-group">
+     <input type="email" name = "email" id = "email" class="form-control" placeholder="Email Address">
+      </div>
+      
+      <br>
+    <div class="input-group">
+     <input type="password" name = "pass" id = "pass" class="form-control" placeholder="Password">
+      </div>
+    
+  <br>
+    <button type="submit" class="btn btn-default">Sign Up</button>
+   
+    
+<form>
+</div></nav>
+</div> 
+</body>
 </html>

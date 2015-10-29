@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Groups</title>
+  <h2> Welcome Pooja !! </h2>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div ng-app="" ng-controller="mainPage">
+	<nav class="navbar-inverse navbar-fixed-top">
+	<div class="container">
+	<div class="navbar-header">
+	<a class="nav navbar-nav navbar-form" href="#">
+		<img alt="Logo" src="../logo1.jpg" width="120" style="margin-left:-110px">
+	</a>
+	</div>
+	<ul class="nav navbar-nav navbar-form">
+		<li class="active">
+			<a href="/index" ng-click="home()">Home</a>
+		</li>
+		<li class="active">
+			<a href="/about" ng-click="home()">About</a>
+		</li>
+		<li class="active">
+			<a href="/friendList" ng-click="home()">Friend List</a>
+		</li>
+		<li class="active">
+			<a href="/interest" ng-click="home()">Interest</a>
+		</li>
+		<li class="active">
+			<a href="/createGroup" ng-click="home()">Groups</a>
+		</li>
+		
+		
+	</ul>
+	
+	<form class="navbar-form navbar-right" role="searchPeople" style="margin-right: -110px;">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search for people" ng-model="searchPerson">
+		</div>
+		<button type="submit" class="btn btn-default navbar-btn" ng-click="search()">
+		<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+		<button type="submit" class="btn btn-default navbar-btn" ng-click="signOut()">Sign Out</button>
+	</form>
+	</div><!-- /.container-fluid -->
+	</nav>
+	<br>
+	<div class="row jumbotron">
+	<div class="col-md-2">
+      <img src="../fbimg.jpg" alt="..." style="border-radius:100px;width:200px;height:200px">
+	</div>
+	<div class="col-md-4">
+      <h3></h3>
+     
+	</div>
+	
+</div>
+</div>
+
+
+<form class="form-horizontal" role="form">
+ <div class="col-sm-10">
+ <h2><b>Group </b></h2>
+  <br>
+    <div class="input-group">
+     Enter Group Name : <input type="text" class="form-control" id="groupname" name = "groupname" placeholder="Group Name">
+     </div>
+     
+      <br>
+      <div class="input-group">
+     Enter Group Description : <input type="text" class="form-control" id="groupdesc" name = "groupdesc" placeholder="Group Description">
+     </div>
+      </div>
+      <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+      <br>
+        <button type="submit" class="btn btn-default">Submit</button>
+     </br>
+    </div>
+</div>
+
+<div>
+<button type="submit" class="btn btn-default">View Groups</button>
+   
+
+</div>
+
+<div class="input-group">
+     
+        <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                  
+                    <th>Group Name</th>
+                    <th>Group Description</th>
+                    <th>Action</th>
+                    
+                </tr>
+                
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].groupname%></td>
+                   ` <td><%=data[i].groupdesc%></td>
+                   
+                    <td>
+                        <a class="a-inside edit" href="../customers/edit/<%=data[i].id%>">Delete Group</a>                       
+                        <a class="a-inside delete" href="../customers/delete/<%=data[i].id%>">Edit Group</a>                       
+                    </td>
+                </tr>
+            <% }
+            
+  			   
+    
+     </table>
+     </div>
+
+
+
+</body>
+</html>

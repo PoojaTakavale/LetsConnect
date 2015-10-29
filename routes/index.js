@@ -5,6 +5,10 @@
 
 var mysql = require("./mySql");
 
+//req.session.email = results[0].email;
+
+//var email = req.session.email;
+
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
@@ -14,9 +18,10 @@ exports.index = function(req, res){
 	};*/
 	 
 exports.chkUser = function(req,res){
+		//var email = req.session.email;
 		var email=req.param("email");
-		var pwd=req.param("pass");
-		var query="select * from users where email='"+email+"' and password = '"+pwd+"'";
+		var pwd=req.param("pwd");
+		var query="select * from demotab where email='"+email+"' and pwd = '"+pwd+"'";
 		//var dbConn = mysql.fetchData();
 		
 		mysql.fetchData(function(err,results){
@@ -27,12 +32,14 @@ exports.chkUser = function(req,res){
 			{
 				if(results.length > 0) {
 					console.log(results[0].email);
+					
+			
 					var fn = results[0].fname;
 					//session.email = email;
 					//var date1 = new Date();
 					//session.date = date1.getFullYear() +"-" +date1.getMonth() +"-" +date1.getDate() +" " +date1.getHours() +":" +date1.getMinutes() +":" +date1.getSeconds();
 					//res.send({"login":"Success","userEmail":results[0].emailId,"userId":results[0].userId,"currentLogin":session.date});
-				res.render('successSignIn',{fname: fn});
+				res.render('userDetails',{fname: fn});
 				//res.render('userDetails',{fname: fn});
 				}
 				else {    
@@ -44,5 +51,9 @@ exports.chkUser = function(req,res){
 		},query);
 };
 
+exports.signout = function(req, res){
 	
+	req.session.destroy();
+	  res.render('index');
+	};	
 	

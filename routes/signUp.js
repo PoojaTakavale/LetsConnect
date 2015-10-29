@@ -47,18 +47,32 @@ exports.userSignUp = function(req,res){
 		var fnm = req.param("fname");
 		var lnm = req.param("lname");
 		console.log(lnm);
+		var query="insert into demotab (fname,lname,email,pwd) values ('"+fnm+"', '"+lnm+"' , '"+email+"', '"+pwd+"')";
 		//var query="insert into users (fname,lname,email,password) values ('"+fnm+"', '"+lnm+"' , '"+email+"', '"+pwd+"')";
-	
-		
-		/*mysql.fetchData(function(err,results){
+		console.log(email);
+		//var query = "select * from demotab where email = '"+email+"' ";
+		console.log(email);
+		//console.log(query1);
+		mysql.fetchData(function(err,results){
 			if(err){
 				throw err;
 			}
 			else 
-			{
-					res.send("Data Inserted");
+			{				
+				if(results.length === 0)
+					{
+					console.log("inside condition");
+					//var query="insert into demotab (fname,lname,email,pwd) values ('"+fnm+"', '"+lnm+"' , '"+email+"', '"+pwd+"')";
+					
+					}
+				else
+					{
+					//window.alert("Email Already Exists !!! ");
+					//res.send({signUp:"Email Id already exists !!"});
+					res.render('index',{fname: fnm});
+					}
 						
 						}  
-		},query);*/
+		},query);
 };
 
